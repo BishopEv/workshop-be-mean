@@ -21,7 +21,7 @@ var server = http.createServer(function(request, response){
 	// O CONTENT TYPE É IMPORTANTE PARA ESPECIFICAR QUE TIPO
 	// DE RETORNO O RESPONSE DARÁ. NESTE CASO, É TEXT/PLAIN
 	// PARA QUE O HTML DO WRITE FUNCIONEL, O PLAIN MUDA PRA
-	// HTML
+	// HTML. É O CABEÇALHO.
 
 	response.writeHead(200, {"Content-Type": "text/html"});
 
@@ -30,6 +30,9 @@ var server = http.createServer(function(request, response){
 	// response.write("Be MEAN");
 
 	response.write("<h1>Be MEAN</h1>");
+
+	// É SEMPRE PRECISO FECHAR A CONEXÃO QUANDO ABERTA, SENÃO DARÁ
+	// TIMEOUT
 	response.end();
 });
 
