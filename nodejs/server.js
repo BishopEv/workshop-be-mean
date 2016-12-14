@@ -1,12 +1,13 @@
+'use strict';
+
 // OS REQUIRE BÁSICOS
 
-var http  = require('http'),
-	fs    = require('fs'),
-
-	// O ARQUIVO É LIDO PELA FUNÇÃO READFILESYNC
-	// É UMA FUNÇÃO ASSÍNCRONA, USANDO UM SUFIXO SYNC, QUE É SÍNCRONA
-
-	index = fs.readFileSync('index.html');
+const http  = require('http'),
+	  JSON = {
+	  	version: 1.0,
+	  	name: 'Be MEAN',
+	  	created_at: Date.now()
+	  };
 
 // OU VARIÁVEIS PODEM SER ESPECIFICADAS PARA DENOTAR AS FUNÇÕES
 
@@ -17,8 +18,9 @@ http.createServer(function(request, response){
 
 	// É SEMPRE PRECISO FECHAR A CONEXÃO QUANDO ABERTA, SENÃO DARÁ
 	// TIMEOUT
-	response.end(index);
+	response.end();
 }).listen(3000, function(){
+	// IMPRIMINDO NO CMD
 	console.log('Servidor rodando em localhost:3000');
 });
 
